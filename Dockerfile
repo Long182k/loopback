@@ -20,8 +20,6 @@ COPY --chown=node . .
 
 RUN npm run build
 
-# Bind to all network interfaces so that it can be mapped to the host OS
-ENV HOST=0.0.0.0 PORT=9000
+ENV PORT=5000
 
-EXPOSE ${80}
 CMD [ "node", "dist/index.js" ]
