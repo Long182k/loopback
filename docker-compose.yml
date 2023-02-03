@@ -1,0 +1,28 @@
+version: '2.15'
+
+services:
+      loopback:
+          build: .
+          image: api
+          container_name: api
+          ports:
+            - "9000:8080"
+          links:
+            - mongo
+          environment:
+            DB_HOST:  mongodb # container database
+            DB_PORT: 27000
+            DB_NAME: db
+            DB_USER: drake
+            DB_PWD: Thanhlong123
+      mongo:
+          image: mongo
+          container_name: mongodb
+          environment:
+            - MONGO_INITDB_ROOT_USERNAME=drake
+            - MONGO_INITDB_ROOT_PASSWORD=Thanhlong123
+            - MONGO_INITDB_DATABASE=db
+          ports:
+            - "27000:27000"
+          volumes:
+            - ./volumes_mongo:/data/db

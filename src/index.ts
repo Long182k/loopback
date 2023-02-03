@@ -14,11 +14,12 @@ export async function main(options: ApplicationConfig = {}) {
   return app;
 }
 
+console.log(process.env.PORT);
 if (require.main === module) {
   // Run the application
   const config = {
     rest: {
-      port: +(process.env.PORT ?? 3000),
+      port: +(process.env.PORT ?? 9001),
       host: process.env.HOST,
       // The `gracePeriodForClose` provides a graceful close for http/https
       // servers with keep-alive clients. The default value is `Infinity`
@@ -34,6 +35,7 @@ if (require.main === module) {
   };
   main(config).catch(err => {
     console.error('Cannot start the application.', err);
+    console.log(config);
     process.exit(1);
   });
 }

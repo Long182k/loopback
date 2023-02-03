@@ -5,8 +5,8 @@ const config = {
   name: 'db',
   connector: 'mongodb',
   url: 'mongodb+srv://drake:Thanhlong123@cluster0.m4cipkw.mongodb.net/test',
-  host: '90000',
-  port: 90000,
+  host: '27000',
+  port: 27000,
   user: 'drake',
   password: 'Thanhlong123',
   database: 'carservice',
@@ -29,4 +29,5 @@ export class DbDataSource extends juggler.DataSource
   ) {
     super(dsConfig);
   }
+
 }
